@@ -155,7 +155,7 @@ const RestaurantRegister = () => {
 
       // Changed expectation to 202 Accepted as data is pending review
       const response = await axios.post(
-        "http://192.168.18.187:5000/api/restaurants",
+        "https://eatster-pro.onrender.com/api/restaurants",
  
         dataToSend
       );

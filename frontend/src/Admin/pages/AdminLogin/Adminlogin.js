@@ -33,7 +33,7 @@ const AdminLoginRegister = () => {
           return;
         }
 
-        const { data } = await axios.post('http://192.168.18.187:5000/api/login', {
+        const { data } = await axios.post('https://eatster-pro.onrender.com/api/login', {
           email: formData.email,
           password: formData.password
         });
@@ -80,7 +80,7 @@ const AdminLoginRegister = () => {
           return;
         }
 
-        await axios.post('http://192.168.18.187:5000/api/register', {
+        await axios.post('https://eatster-pro.onrender.com/api/register', {
           username: formData.username,
           email: formData.email,
           password: formData.password

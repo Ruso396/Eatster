@@ -96,7 +96,7 @@ const placeOrder = async () => {
     : "No address provided";
 
   try {
-    const res = await axios.post("http://192.168.18.187:5000/api/orders/place", {
+    const res = await axios.post("https://eatster-pro.onrender.com/api/orders/place", {
       customer_id: customerId,
       restaurant_id: localStorage.getItem("restaurant_id_temp"),
       address: formattedAddress,
@@ -106,7 +106,7 @@ const placeOrder = async () => {
     });
 
     if (res.status === 200 && res.data.message === "Order placed successfully") {
-      await axios.delete(`http://192.168.18.187:5000/api/cart/clear/${customerId}`);
+      await axios.delete(`https://eatster-pro.onrender.com/api/cart/clear/${customerId}`);
       fetchCartCount();
       navigate("/OrderHistory");
     } else {
@@ -180,8 +180,8 @@ const placeOrder = async () => {
                   src={
                     item.image_url
                       ? item.image_url.startsWith('/uploads/')
-                        ? `http://192.168.18.187:5000${item.image_url}`
-                        : `http://192.168.18.187:5000/uploads/menu_items/${item.image_url}`
+                        ? `https://eatster-pro.onrender.com${item.image_url}`
+                        : `https://eatster-pro.onrender.com/uploads/menu_items/${item.image_url}`
                       : "/food-default.jpg"
                   }
                   alt={item.item_name}

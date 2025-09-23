@@ -10,7 +10,7 @@
 // //   const [loading, setLoading] = useState(true);
 // //   const [error, setError] = useState(null);
 
-// //   const BASE_URL = 'http://192.168.18.187:5000';
+// //   const BASE_URL = 'https://eatster-pro.onrender.com';
 
 // //   useEffect(() => {
 // //     const fetchRestaurantDetails = async () => {
@@ -129,7 +129,7 @@
 //   const [loading, setLoading] = useState(true);
 //   const [error, setError] = useState(null);
 
-//   const BASE_URL = 'http://192.168.18.187:5000';
+//   const BASE_URL = 'https://eatster-pro.onrender.com';
 
 //   useEffect(() => {
 //     const fetchRestaurantDetails = async () => {
@@ -261,7 +261,7 @@ const DashboardOverview = () => {
   const [error, setError] = useState(null);
   const [todayStats, setTodayStats] = useState(null);
 
-  const BASE_URL = 'http://192.168.18.187:5000';
+  const BASE_URL = 'https://eatster-pro.onrender.com';
 
   useEffect(() => {
     const fetchRestaurantDetails = async () => {

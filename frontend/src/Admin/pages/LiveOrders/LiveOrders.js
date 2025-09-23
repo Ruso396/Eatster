@@ -27,7 +27,7 @@ const LiveOrders = () => {
         return;
       }
 
-      const res = await axios.get('http://192.168.18.187:5000/api/orders/restaurant', {
+      const res = await axios.get('https://eatster-pro.onrender.com/api/orders/restaurant', {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -62,7 +62,7 @@ const LiveOrders = () => {
     try {
       const token = localStorage.getItem('token');
       await axios.put(
-        `http://192.168.18.187:5000/api/orders/${orderId}/status`,
+        `https://eatster-pro.onrender.com/api/orders/${orderId}/status`,
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );

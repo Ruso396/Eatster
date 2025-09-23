@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'http://192.168.18.187:5000/',
+  baseURL: 'https://eatster-pro.onrender.com/',
 });
 
 // API.interceptors.request.use((req) => {

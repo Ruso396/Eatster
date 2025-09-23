@@ -14,7 +14,7 @@ const PaymentsPage = () => {
 
   const fetchRestaurants = async () => {
     try {
-      const response = await fetch('http://192.168.18.187:5000/api/restaurants');
+      const response = await fetch('https://eatster-pro.onrender.com/api/restaurants');
       const data = await response.json();
       setRestaurants(data);
     } catch (error) {
@@ -24,7 +24,7 @@ const PaymentsPage = () => {
 
   const fetchPaymentsByRestaurant = async (restaurantId, name) => {
     try {
-      const response = await fetch(`http://192.168.18.187:5000/api/orders/restaurant/${restaurantId}`);
+      const response = await fetch(`https://eatster-pro.onrender.com/api/orders/restaurant/${restaurantId}`);
       const data = await response.json();
       setSelectedRestaurantPayments(data);
       setSelectedRestaurantName(name);
@@ -155,7 +155,7 @@ export default PaymentsPage;
 
 //   const fetchRestaurants = async () => {
 //     try {
-//       const response = await fetch('http://192.168.18.187:5000/api/restaurants');
+//       const response = await fetch('https://eatster-pro.onrender.com/api/restaurants');
 //       const data = await response.json();
 //       setRestaurants(data);
 //     } catch (error) {
@@ -165,7 +165,7 @@ export default PaymentsPage;
 
 //   const fetchPaymentsByRestaurant = async (restaurantId, name) => {
 //     try {
-//       const response = await fetch(`http://192.168.18.187:5000/api/orders/restaurant/${restaurantId}`);
+//       const response = await fetch(`https://eatster-pro.onrender.com/api/orders/restaurant/${restaurantId}`);
 //       const data = await response.json();
 //       setSelectedRestaurantPayments(data);
 //       setSelectedRestaurantName(name);

@@ -9,7 +9,7 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://192.168.18.187:5000/api/register", form);
+      await axios.post("https://eatster-pro.onrender.com/api/register", form);
       alert("Registered successfully!");
     } catch (err) {
       alert(err.response?.data?.message || "Registration failed");

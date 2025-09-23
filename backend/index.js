@@ -52,5 +52,5 @@ app.use("/api/search",searchRoutes)
 
 // ✅ Start the HTTP server
 http.listen(5000, () => {
-  console.log('✅ Server started on http://192.168.18.187:5000');
+  console.log('✅ Server started on https://eatster-pro.onrender.com');
 });

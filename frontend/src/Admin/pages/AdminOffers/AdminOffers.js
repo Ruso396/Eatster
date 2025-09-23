@@ -38,7 +38,7 @@
 //       data.append("active", true);
 //       if (formData.image) data.append("image", formData.image);
 
-//       await axios.post("http://192.168.18.187:5000/api/offers", data);
+//       await axios.post("https://eatster-pro.onrender.com/api/offers", data);
 //       alert("✅ Offer added successfully!");
 
 //       setFormData({
@@ -120,7 +120,7 @@ const AdminOffers = () => {
     // Fetch banners for this restaurant
     useEffect(() => {
         if (!restaurantId) return;
-        axios.get(`http://192.168.18.187:5000/api/restaurants/${restaurantId}/banners`).then(res => setBanners(res.data));
+        axios.get(`https://eatster-pro.onrender.com/api/restaurants/${restaurantId}/banners`).then(res => setBanners(res.data));
     }, [restaurantId, bannerRefresh]);
 
     // Delete banner
@@ -134,7 +134,7 @@ const AdminOffers = () => {
             confirmButtonText: 'Yes, delete it!',
         });
         if (!result.isConfirmed) return;
-        await axios.delete(`http://192.168.18.187:5000/api/restaurants/banners/${bannerId}`);
+        await axios.delete(`https://eatster-pro.onrender.com/api/restaurants/banners/${bannerId}`);
         setBannerRefresh(prev => !prev);
         Swal.fire({ icon: 'success', title: 'Banner deleted successfully!', showConfirmButton: false, timer: 1200 });
     };
@@ -155,7 +155,7 @@ const AdminOffers = () => {
         }
         const data = new FormData();
         data.append("banner", editBannerImage);
-        await axios.put(`http://192.168.18.187:5000/api/restaurants/banners/${editBannerId}`, data);
+        await axios.put(`https://eatster-pro.onrender.com/api/restaurants/banners/${editBannerId}`, data);
         setEditBannerId(null);
         setEditBannerImage(null);
         setBannerRefresh(prev => !prev);
@@ -188,7 +188,7 @@ const AdminOffers = () => {
       data.append("active", true);
       if (formData.image) data.append("image", formData.image);
 
-      await axios.post("http://192.168.18.187:5000/api/offers", data);
+      await axios.post("https://eatster-pro.onrender.com/api/offers", data);
       setFormData({
         title: "",
                 foodname: "",
@@ -229,7 +229,7 @@ const AdminOffers = () => {
             const data = new FormData();
             data.append("restaurant_id", restaurantId);
             data.append("banner", bannerImage);
-            await axios.post("http://192.168.18.187:5000/api/restaurants/banners", data);
+            await axios.post("https://eatster-pro.onrender.com/api/restaurants/banners", data);
             setBannerImage(null);
             if (bannerInputRef.current) bannerInputRef.current.value = "";
             setBannerRefresh(prev => !prev);
@@ -426,7 +426,7 @@ const AdminOffers = () => {
                         {banners.map(banner => (
                             <div key={banner.id} className="border border-gray-200 rounded-xl shadow-md p-3 relative bg-white flex flex-col items-center">
                                 <img
-                                    src={`http://192.168.18.187:5000${banner.image_url}`}
+                                    src={`https://eatster-pro.onrender.com${banner.image_url}`}
                                     alt="Banner"
                                     className="w-full h-36 object-cover rounded-md mb-3"
                                 />

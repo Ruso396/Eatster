@@ -39,7 +39,7 @@ const TrackingPage = () => {
   useEffect(() => {
     const fetchOrder = () => {
       axios
-        .get(`http://192.168.18.187:5000/api/orders/track/${orderId}`)
+        .get(`https://eatster-pro.onrender.com/api/orders/track/${orderId}`)
         .then((res) => setOrder(res.data))
         .catch((err) => console.error("Error fetching order:", err));
     };
@@ -52,14 +52,14 @@ const TrackingPage = () => {
   const handleCancel = () => {
     if (!cancelReason) return alert("Please select a reason");
     axios
-      .put(`http://192.168.18.187:5000/api/orders/cancel/${orderId}`, {
+      .put(`https://eatster-pro.onrender.com/api/orders/cancel/${orderId}`, {
         reason: cancelReason,
       })
       .then(() => {
         alert("Order cancelled successfully");
         setShowCancelForm(false);
         setCancelReason("");
-        axios.get(`http://192.168.18.187:5000/api/orders/track/${orderId}`)
+        axios.get(`https://eatster-pro.onrender.com/api/orders/track/${orderId}`)
              .then((res) => setOrder(res.data));
       })
       .catch((err) => {
@@ -99,8 +99,8 @@ const TrackingPage = () => {
                       src={
                         item.image_url
                           ? item.image_url.startsWith('/uploads/')
-                            ? `http://192.168.18.187:5000${item.image_url}`
-                            : `http://192.168.18.187:5000/uploads/menu_items/${item.image_url}`
+                            ? `https://eatster-pro.onrender.com${item.image_url}`
+                            : `https://eatster-pro.onrender.com/uploads/menu_items/${item.image_url}`
                           : "/food-default.jpg"
                       }
                       alt={item.item_name}

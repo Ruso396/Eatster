@@ -11,8 +11,8 @@ const FoodDeliveredAlert = () => {
   let imgSrc = "/food-default.jpg";
   if (imageUrl) {
     imgSrc = imageUrl.startsWith('/uploads/')
-      ? `http://192.168.18.187:5000${imageUrl}`
-      : `http://192.168.18.187:5000/uploads/menu_items/${imageUrl}`;
+      ? `https://eatster-pro.onrender.com${imageUrl}`
+      : `https://eatster-pro.onrender.com/uploads/menu_items/${imageUrl}`;
   }
 
   return (

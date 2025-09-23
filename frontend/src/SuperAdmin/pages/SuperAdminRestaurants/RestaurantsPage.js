@@ -13,13 +13,13 @@ export default function RestaurantsPage() {
   }, []);
 
   const fetchUsers = () => {
-    axios.get('http://192.168.18.187:5000/api/users')
+    axios.get('https://eatster-pro.onrender.com/api/users')
       .then(res => setUsers(res.data))
       .catch(err => console.error(err));
   };
 
   const handleMakeAdmin = (id) => {
-    axios.put(`http://192.168.18.187:5000/api/restaurants/make-admin/${id}`)
+    axios.put(`https://eatster-pro.onrender.com/api/restaurants/make-admin/${id}`)
       .then(() => {
         alert("✅ User promoted to admin!");
         fetchUsers();

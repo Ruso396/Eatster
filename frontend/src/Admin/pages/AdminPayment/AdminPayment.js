@@ -40,7 +40,7 @@ const AdminPayment = () => {
 
       try {
         const res = await axios.get(
-          `http://192.168.18.187:5000/api/orders/restaurant/${restaurantId}`
+          `https://eatster-pro.onrender.com/api/orders/restaurant/${restaurantId}`
         );
         setOrders(res.data);
         setFilteredOrders(res.data);

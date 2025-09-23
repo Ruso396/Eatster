@@ -150,7 +150,7 @@ const RadminPage = () => {
       }
 
       try {
-        const response = await axios.get(`http://192.168.18.187:5000/api/restaurants/details/${userEmail}`);
+        const response = await axios.get(`https://eatster-pro.onrender.com/api/restaurants/details/${userEmail}`);
         const data = response.data;
 
         setRestaurant({

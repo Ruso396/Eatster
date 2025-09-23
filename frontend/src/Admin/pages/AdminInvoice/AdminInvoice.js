@@ -29,7 +29,7 @@ export default function AdminInvoicesPage() {
       return;
     }
 
-    fetch(`http://192.168.18.187:5000/api/invoice/restaurant/${restaurantId}`)
+    fetch(`https://eatster-pro.onrender.com/api/invoice/restaurant/${restaurantId}`)
       .then((res) => res.json())
       .then((data) => {
         const formatted = data.map((inv) => ({
@@ -114,7 +114,7 @@ export default function AdminInvoicesPage() {
                     <Button
                       variant="contained"
                       color="error"
-                      href={`http://192.168.18.187:5000/api/invoice/${inv.order_id}`}
+                      href={`https://eatster-pro.onrender.com/api/invoice/${inv.order_id}`}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
