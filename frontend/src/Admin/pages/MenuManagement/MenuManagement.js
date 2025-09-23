@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Plus, Pencil, Trash2 } from 'lucide-react';
 import Swal from 'sweetalert2';
 
-const API_BASE_URL = 'https://eatster-pro.onrender.com/api/restaurants'; // Your backend API base URL
+const API_BASE_URL = 'http://localhost:5000/api/restaurants'; // Your backend API base URL
 
 const MenuManagement = () => {
   const [menuItems, setMenuItems] = useState([]);
@@ -210,7 +210,7 @@ const MenuManagement = () => {
                   src={
                     formData.itemImage
                       ? URL.createObjectURL(formData.itemImage)
-                      : `https://eatster-pro.onrender.com/${currentEditItem.image_url}`
+                      : `http://localhost:5000/${currentEditItem.image_url}`
                   }
                   alt="Preview"
                   className="w-24 h-24 rounded-md object-cover"
@@ -262,7 +262,7 @@ const MenuManagement = () => {
         ) : (
           menuItems.map((item) => (
             <div key={item.id} className="bg-gray-50 p-4 rounded-lg shadow-sm flex items-center space-x-4">
-              <img src={item.image_url ? `https://eatster-pro.onrender.com/${item.image_url}` : 'https://via.placeholder.com/64'} alt={item.name} className="w-16 h-16 rounded-md object-cover" />
+              <img src={item.image_url ? `http://localhost:5000/${item.image_url}` : 'https://via.placeholder.com/64'} alt={item.name} className="w-16 h-16 rounded-md object-cover" />
               <div className="flex-1">
                 <p className="font-semibold text-gray-800">{item.name}</p>
                 <p className="text-sm text-gray-600">{item.category} - ₹{item.price}</p>

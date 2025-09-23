@@ -3,7 +3,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { FaEdit, FaTrash } from "react-icons/fa";
 
-const BASE_URL = "https://eatster-pro.onrender.com";
+const BASE_URL = "http://localhost:5000";
 
 export default function MenuItemsPage() {
   const [menuItems, setMenuItems] = useState([]);

@@ -36,7 +36,7 @@ const OrderHistory = () => {
   useEffect(() => {
     if (customerId) {
       axios
-        .get(`https://eatster-pro.onrender.com/api/orders/history/${customerId}`)
+        .get(`http://localhost:5000/api/orders/history/${customerId}`)
         .then((res) => {
           setOrders(res.data);
           const deliveredOrders = res.data.filter(
@@ -44,7 +44,7 @@ const OrderHistory = () => {
           );
           deliveredOrders.forEach((o) => {
             axios
-              .get(`https://eatster-pro.onrender.com/api/orders/review/${o.order_id}`)
+              .get(`http://localhost:5000/api/orders/review/${o.order_id}`)
               .then((r) => {
                 if (r.data) {
                   setExistingReviews((prev) => ({
@@ -68,7 +68,7 @@ const OrderHistory = () => {
 
   const handleSubmitReview = () => {
     axios
-      .post("https://eatster-pro.onrender.com/api/orders/review", {
+      .post("http://localhost:5000/api/orders/review", {
         order_id: selectedOrder.order_id,
         restaurant_id: selectedOrder.restaurant_id,
         customer_id: selectedOrder.customer_id,
@@ -162,8 +162,8 @@ const OrderHistory = () => {
                             src={
                               item.image_url
                                 ? item.image_url.startsWith('/uploads/')
-                                  ? `https://eatster-pro.onrender.com${item.image_url}`
-                                  : `https://eatster-pro.onrender.com/uploads/menu_items/${item.image_url}`
+                                  ? `http://localhost:5000${item.image_url}`
+                                  : `http://localhost:5000/uploads/menu_items/${item.image_url}`
                                 : "/food-default.jpg"
                             }
                             alt={item.item_name}

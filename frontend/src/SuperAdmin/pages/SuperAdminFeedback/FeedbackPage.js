@@ -3,7 +3,7 @@ import axios from 'axios';
 import { FaUtensils, FaStar, FaMapMarkerAlt } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const API_BASE_URL = 'https://eatster-pro.onrender.com/api';
+const API_BASE_URL = 'http://localhost:5000/api';
 
 export default function SuperAdminFeedbackPage({ isDarkMode }) {
   const [restaurants, setRestaurants] = useState([]);

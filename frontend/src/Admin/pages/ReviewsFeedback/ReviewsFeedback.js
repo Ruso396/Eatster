@@ -3,7 +3,7 @@ import axios from 'axios';
 import { motion } from 'framer-motion';
 import { FaStar, FaUserCircle } from 'react-icons/fa';
 
-const API_BASE_URL = 'https://eatster-pro.onrender.com/api';
+const API_BASE_URL = 'http://localhost:5000/api';
 
 export default function ReviewsFeedback() {
   const [reviews, setReviews] = useState([]);
