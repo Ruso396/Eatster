@@ -1,0 +1,13 @@
+@import '../shared/ComingSoon.css';
+
+.settings-page {
+  padding: 20px;
+  min-height: calc(100vh - 70px);
+  background: #f8f9fa;
+  transition: all 0.3s ease;
+}
+
+.settings-page.dark-mode {
+  background: #1a1a1a;
+  color: #ffffff;
+} 

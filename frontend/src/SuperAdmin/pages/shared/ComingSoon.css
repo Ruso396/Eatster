@@ -1,0 +1,226 @@
+/* Shared styles for all SuperAdmin pages */
+.page-header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.page-header p {
+  font-size: 1.1rem;
+  color: #666;
+  margin: 0;
+}
+
+.dark-mode .page-header p {
+  color: #ccc;
+}
+
+/* Coming Soon Component */
+.coming-soon {
+  text-align: center;
+  padding: 60px 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.coming-soon svg {
+  font-size: 4rem;
+  color: #667eea;
+  margin-bottom: 20px;
+}
+
+.coming-soon h3 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.dark-mode .coming-soon h3 {
+  color: white;
+}
+
+.coming-soon p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.dark-mode .coming-soon p {
+  color: #bdc3c7;
+}
+
+.coming-soon ul {
+  text-align: left;
+  list-style: none;
+  padding: 0;
+}
+
+.coming-soon li {
+  padding: 8px 0;
+  color: #666;
+  position: relative;
+  padding-left: 25px;
+}
+
+.dark-mode .coming-soon li {
+  color: #bdc3c7;
+}
+
+.coming-soon li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #28a745;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-box,
+.filter-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 10px;
+  padding: 0 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  min-width: 250px;
+}
+
+.dark-mode .search-box,
+.dark-mode .filter-box {
+  background: #2c3e50;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.search-box svg,
+.filter-box svg {
+  color: #666;
+  margin-right: 10px;
+}
+
+.dark-mode .search-box svg,
+.dark-mode .filter-box svg {
+  color: #bdc3c7;
+}
+
+.search-box input,
+.filter-box select {
+  flex: 1;
+  padding: 12px 0;
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 1rem;
+  color: #333;
+}
+
+.dark-mode .search-box input,
+.dark-mode .filter-box select {
+  color: white;
+}
+
+.search-box input::placeholder {
+  color: #999;
+}
+
+.dark-mode .search-box input::placeholder {
+  color: #7f8c8d;
+}
+
+.export-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.export-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+/* Loading State */
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .page-header h1 {
+    font-size: 2rem;
+  }
+  
+  .coming-soon {
+    padding: 40px 15px;
+  }
+  
+  .coming-soon h3 {
+    font-size: 1.5rem;
+  }
+  
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .search-box,
+  .filter-box {
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .coming-soon {
+    padding: 30px 10px;
+  }
+  
+  .coming-soon h3 {
+    font-size: 1.3rem;
+  }
+  
+  .coming-soon p {
+    font-size: 1rem;
+  }
+} 

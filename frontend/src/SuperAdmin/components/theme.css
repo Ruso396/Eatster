@@ -1,0 +1,96 @@
+/* Common styles for sidebar and header */
+[data-theme="light"] .admin-sidebar,
+[data-theme="light"] .admin-header {
+  background-color: #ffffff;
+  color: #000;
+}
+
+[data-theme="dark"] .admin-sidebar,
+[data-theme="dark"] .admin-header {
+  background-color: #222;
+  color: #fff;
+}
+
+[data-theme="blue"] .admin-sidebar,
+[data-theme="blue"] .admin-header {
+  background-color: #007bff;
+  color: #fff;
+}
+
+[data-theme="green"] .admin-sidebar,
+[data-theme="green"] .admin-header {
+  background-color: #28a745;
+  color: #fff;
+}
+
+[data-theme="purple"] .admin-sidebar,
+[data-theme="purple"] .admin-header {
+  background-color: #6f42c1;
+  color: #fff;
+}
+
+[data-theme="orange"] .admin-sidebar,
+[data-theme="orange"] .admin-header {
+  background-color: #fd7e14;
+  color: #fff;
+}
+
+[data-theme="pink"] .admin-sidebar,
+[data-theme="pink"] .admin-header {
+  background-color: #e83e8c;
+  color: #fff;
+}
+
+[data-theme="red"] .admin-sidebar,
+[data-theme="red"] .admin-header {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+[data-theme="teal"] .admin-sidebar,
+[data-theme="teal"] .admin-header {
+  background-color: #20c997;
+  color: #fff;
+}
+
+[data-theme="indigo"] .admin-sidebar,
+[data-theme="indigo"] .admin-header {
+  background-color: #6610f2;
+  color: #fff;
+}
+
+[data-theme="yellow"] .admin-sidebar,
+[data-theme="yellow"] .admin-header {
+  background-color: #ffc107;
+  color: #000;
+}
+
+[data-theme="gray"] .admin-sidebar,
+[data-theme="gray"] .admin-header {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+[data-theme="skyblue"] .admin-sidebar,
+[data-theme="skyblue"] .admin-header {
+  background-color: #87ceeb;
+  color: #000;
+}
+
+[data-theme="brown"] .admin-sidebar,
+[data-theme="brown"] .admin-header {
+  background-color: #8b4513;
+  color: #fff;
+}
+
+[data-theme="gold"] .admin-sidebar,
+[data-theme="gold"] .admin-header {
+  background-color: #ffd700;
+  color: #000;
+}
+
+[data-theme="lavender"] .admin-sidebar,
+[data-theme="lavender"] .admin-header {
+  background-color: #e6e6fa;
+  color: #000;
+}

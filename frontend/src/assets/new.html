@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Strength Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f4f8;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .weak {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .strong {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .password-strength-bar {
+            width: 100%;
+            height: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .password-strength-bar span {
+            display: block;
+            height: 100%;
+        }
+        .password-strength-text {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Password Strength Checker</h1>
+    <p>Enter a password to check its strength and estimate how long it would take a supercomputer to crack it.</p>
+    
+    <input type="password" id="password" placeholder="Enter your password">
+    <button onclick="checkPassword()">Check Password</button>
+
+    <div id="result" class="result"></div>
+    <div id="timeToCrack" class="result"></div>
+    
+    <!-- Password Strength Bar -->
+    <div class="password-strength-bar">
+        <span id="strengthBar" style="width: 0%;"></span>
+    </div>
+    <div id="strengthText" class="password-strength-text"></div>
+</div>
+
+<script>
+    function checkPassword() {
+        var password = document.getElementById('password').value;
+        var result = document.getElementById('result');
+        var timeToCrack = document.getElementById('timeToCrack');
+        var strengthBar = document.getElementById('strengthBar');
+        var strengthText = document.getElementById('strengthText');
+
+        // Check password strength
+        var strength = getPasswordStrength(password);
+
+        // Set result text based on strength
+        result.textContent = strength.message;
+        result.className = 'result ' + strength.className;
+
+        // Set the strength bar
+        strengthBar.style.width = strength.width + '%';
+        strengthBar.style.backgroundColor = strength.color;
+
+        // Set strength text
+        strengthText.textContent = strength.text;
+
+        // Estimate cracking time (supercomputer: 1 billion guesses per second)
+        var crackingTime = estimateCrackingTime(password);
+        timeToCrack.innerHTML = `Estimated cracking time: ${crackingTime}`;
+    }
+
+    // Function to estimate the time a supercomputer would take to crack the password
+    function estimateCrackingTime(password) {
+        const supercomputerGuessesPerSecond = 1e9; // 1 billion guesses per second
+        const charSetLength = 94; // Possible characters (lowercase + uppercase + digits + special chars)
+
+        var passwordLength = password.length;
+        var totalCombinations = Math.pow(charSetLength, passwordLength); // Total possible combinations
+
+        var timeInSeconds = totalCombinations / supercomputerGuessesPerSecond; // Time in seconds
+        var timeInHours = timeInSeconds / 3600;
+        var timeInDays = timeInHours / 24;
+
+        if (timeInDays < 1) {
+            return `${Math.round(timeInHours)} hours`;
+        } else if (timeInDays < 365) {
+            return `${Math.round(timeInDays)} days`;
+        } else {
+            var timeInYears = timeInDays / 365;
+            return `${Math.round(timeInYears)} years`;
+        }
+    }
+
+    // Function to evaluate the password strength based on length, variety, and estimated cracking time
+    function getPasswordStrength(password) {
+        var score = 0;
+        var lengthScore = 0;
+        var varietyScore = 0;
+        
+        var isLengthStrong = password.length >= 12;  // Length of 12 or more is considered strong
+        var hasUpperCase = /[A-Z]/.test(password);
+        var hasLowerCase = /[a-z]/.test(password);
+        var hasDigit = /\d/.test(password);
+        var hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+        // If no digits or special characters, enforce the "Weak" rule
+        if (!hasDigit && !hasSpecialChar) {
+            return {
+                message: "Your password is weak.",
+                className: 'weak',
+                width: 40,
+                color: 'orange',
+                text: "Weak"
+            };
+        }
+
+        // Length score: +1 point for password length >= 12
+        if (isLengthStrong) {
+            lengthScore = 1;
+        }
+        
+        // Variety score: Add points for different character types
+        varietyScore = (hasUpperCase ? 1 : 0) + (hasLowerCase ? 1 : 0) + (hasDigit ? 1 : 0) + (hasSpecialChar ? 1 : 0);
+
+        // Combine the scores
+        score = lengthScore + varietyScore;
+
+        // Estimate cracking time and add points based on how long it takes to crack
+        var crackingTime = estimateCrackingTimeInYears(password);
+        var crackingPoints = Math.floor(crackingTime / 100);  // 1 point for every 100 years
+        score += crackingPoints;
+
+        // Set strength based on score
+        var result = {
+            message: '',
+            className: '',
+            width: 0,
+            color: '',
+            text: ''
+        };
+
+        // Determine the strength based on the score
+        if (score <= 2) {
+            result.message = "Your password is very weak.";
+            result.className = 'weak';
+            result.width = 20;
+            result.color = 'red';
+            result.text = "Very Weak";
+        } else if (score == 3) {
+            result.message = "Your password is weak.";
+            result.className = 'weak';
+            result.width = 40;
+            result.color = 'orange';
+            result.text = "Weak";
+        } else if (score == 4) {
+            result.message = "Your password is moderate.";
+            result.className = 'weak';
+            result.width = 60;
+            result.color = 'yellow';
+            result.text = "Moderate";
+        } else if (score == 5) {
+            result.message = "Your password is strong.";
+            result.className = 'strong';
+            result.width = 80;
+            result.color = 'lightgreen';
+            result.text = "Strong";
+        } else if (score >= 6) {
+            result.message = "Your password is very strong.";
+            result.className = 'strong';
+            result.width = 100;
+            result.color = 'green';
+            result.text = "Very Strong";
+        }
+
+        return result;
+    }
+
+    // Function to calculate cracking time in years for scoring purposes
+    function estimateCrackingTimeInYears(password) {
+        const supercomputerGuessesPerSecond = 1e9; // 1 billion guesses per second
+        const charSetLength = 94; // Possible characters (lowercase + uppercase + digits + special chars)
+
+        var passwordLength = password.length;
+        var totalCombinations = Math.pow(charSetLength, passwordLength); // Total possible combinations
+
+        var timeInSeconds = totalCombinations / supercomputerGuessesPerSecond; // Time in seconds
+        var timeInYears = timeInSeconds / (3600 * 24 * 365); // Convert to years
+
+        return timeInYears;
+    }
+</script>
+
+</body>
+</html>
