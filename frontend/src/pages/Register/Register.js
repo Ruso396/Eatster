@@ -9,7 +9,7 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("https://eatster-nine.vercel.app/api/register", form);
+      await axios.post("https://backend-weld-three-46.vercel.app/api/register", form);
       alert("Registered successfully!");
     } catch (err) {
       alert(err.response?.data?.message || "Registration failed");

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { FaUtensils, FaStar, FaMapMarkerAlt } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const API_BASE_URL = 'https://eatster-nine.vercel.app/api';
+const API_BASE_URL = 'https://backend-weld-three-46.vercel.app/api';
 
 export default function SuperAdminFeedbackPage({ isDarkMode }) {
   const [restaurants, setRestaurants] = useState([]);

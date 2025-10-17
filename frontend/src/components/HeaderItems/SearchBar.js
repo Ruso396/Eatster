@@ -26,7 +26,7 @@ const SearchBar = ({ userLocation }) => {
       return;
     }
     axios
-      .get("https://eatster-nine.vercel.app/api/search/suggestions", { params: { query } })
+      .get("https://backend-weld-three-46.vercel.app/api/search/suggestions", { params: { query } })
       .then((res) => {
         setSuggestions(res.data);
       })
@@ -68,7 +68,7 @@ const SearchBar = ({ userLocation }) => {
       foodName: searchText,
     };
     axios
-      .get("https://eatster-nine.vercel.app/api/restaurants/nearby-by-menu-item", { params: query })
+      .get("https://backend-weld-three-46.vercel.app/api/restaurants/nearby-by-menu-item", { params: query })
       .then((res) => {
         setRestaurants(res.data);
         setError("");

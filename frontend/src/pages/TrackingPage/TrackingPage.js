@@ -39,7 +39,7 @@ const TrackingPage = () => {
   useEffect(() => {
     const fetchOrder = () => {
       axios
-        .get(`https://eatster-nine.vercel.app/api/orders/track/${orderId}`)
+        .get(`https://backend-weld-three-46.vercel.app/api/orders/track/${orderId}`)
         .then((res) => setOrder(res.data))
         .catch((err) => console.error("Error fetching order:", err));
     };
@@ -52,14 +52,14 @@ const TrackingPage = () => {
   const handleCancel = () => {
     if (!cancelReason) return alert("Please select a reason");
     axios
-      .put(`https://eatster-nine.vercel.app/api/orders/cancel/${orderId}`, {
+      .put(`https://backend-weld-three-46.vercel.app/api/orders/cancel/${orderId}`, {
         reason: cancelReason,
       })
       .then(() => {
         alert("Order cancelled successfully");
         setShowCancelForm(false);
         setCancelReason("");
-        axios.get(`https://eatster-nine.vercel.app/api/orders/track/${orderId}`)
+        axios.get(`https://backend-weld-three-46.vercel.app/api/orders/track/${orderId}`)
              .then((res) => setOrder(res.data));
       })
       .catch((err) => {

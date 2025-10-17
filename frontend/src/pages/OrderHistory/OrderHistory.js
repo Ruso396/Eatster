@@ -36,7 +36,7 @@ const OrderHistory = () => {
   useEffect(() => {
     if (customerId) {
       axios
-        .get(`https://eatster-nine.vercel.app/api/orders/history/${customerId}`)
+        .get(`https://backend-weld-three-46.vercel.app/api/orders/history/${customerId}`)
         .then((res) => {
           setOrders(res.data);
           const deliveredOrders = res.data.filter(
@@ -44,7 +44,7 @@ const OrderHistory = () => {
           );
           deliveredOrders.forEach((o) => {
             axios
-              .get(`https://eatster-nine.vercel.app/api/orders/review/${o.order_id}`)
+              .get(`https://backend-weld-three-46.vercel.app/api/orders/review/${o.order_id}`)
               .then((r) => {
                 if (r.data) {
                   setExistingReviews((prev) => ({
@@ -68,7 +68,7 @@ const OrderHistory = () => {
 
   const handleSubmitReview = () => {
     axios
-      .post("https://eatster-nine.vercel.app/api/orders/review", {
+      .post("https://backend-weld-three-46.vercel.app/api/orders/review", {
         order_id: selectedOrder.order_id,
         restaurant_id: selectedOrder.restaurant_id,
         customer_id: selectedOrder.customer_id,

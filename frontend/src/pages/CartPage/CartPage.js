@@ -19,7 +19,7 @@ const CartPage = () => {
   const fetchCartItems = () => {
     if (customerId) {
       axios
-        .get(`https://eatster-nine.vercel.app/api/cart/${customerId}`)
+        .get(`https://backend-weld-three-46.vercel.app/api/cart/${customerId}`)
         .then((res) => setCartItems(res.data))
         .catch((err) => console.error("Error fetching cart items:", err));
     }
@@ -29,7 +29,7 @@ const CartPage = () => {
     if (newQty <= 0) return;
 
     axios
-      .put(`https://eatster-nine.vercel.app/api/cart/update/${cartId}`, { quantity: newQty })
+      .put(`https://backend-weld-three-46.vercel.app/api/cart/update/${cartId}`, { quantity: newQty })
       .then(() => {
         fetchCartItems();
         fetchCartCount();
@@ -48,7 +48,7 @@ const CartPage = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`https://eatster-nine.vercel.app/api/cart/item/${cartId}`)
+          .delete(`https://backend-weld-three-46.vercel.app/api/cart/item/${cartId}`)
           .then(() => {
             Swal.fire("Removed!", "Item removed from cart.", "success");
             fetchCartItems();

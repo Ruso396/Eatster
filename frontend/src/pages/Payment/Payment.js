@@ -96,7 +96,7 @@ const placeOrder = async () => {
     : "No address provided";
 
   try {
-    const res = await axios.post("https://eatster-nine.vercel.app/api/orders/place", {
+    const res = await axios.post("https://backend-weld-three-46.vercel.app/api/orders/place", {
       customer_id: customerId,
       restaurant_id: localStorage.getItem("restaurant_id_temp"),
       address: formattedAddress,
@@ -106,7 +106,7 @@ const placeOrder = async () => {
     });
 
     if (res.status === 200 && res.data.message === "Order placed successfully") {
-      await axios.delete(`https://eatster-nine.vercel.app/api/cart/clear/${customerId}`);
+      await axios.delete(`https://backend-weld-three-46.vercel.app/api/cart/clear/${customerId}`);
       fetchCartCount();
       navigate("/OrderHistory");
     } else {

@@ -29,7 +29,7 @@ export default function AdminInvoicesPage() {
       return;
     }
 
-    fetch(`https://eatster-nine.vercel.app/api/invoice/restaurant/${restaurantId}`)
+    fetch(`https://backend-weld-three-46.vercel.app/api/invoice/restaurant/${restaurantId}`)
       .then((res) => res.json())
       .then((data) => {
         const formatted = data.map((inv) => ({
@@ -114,7 +114,7 @@ export default function AdminInvoicesPage() {
                     <Button
                       variant="contained"
                       color="error"
-                      href={`https://eatster-nine.vercel.app/api/invoice/${inv.order_id}`}
+                      href={`https://backend-weld-three-46.vercel.app/api/invoice/${inv.order_id}`}
                       target="_blank"
                       rel="noopener noreferrer"
                     >

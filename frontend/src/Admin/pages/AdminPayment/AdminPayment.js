@@ -40,7 +40,7 @@ const AdminPayment = () => {
 
       try {
         const res = await axios.get(
-          `https://eatster-nine.vercel.app/api/orders/restaurant/${restaurantId}`
+          `https://backend-weld-three-46.vercel.app/api/orders/restaurant/${restaurantId}`
         );
         setOrders(res.data);
         setFilteredOrders(res.data);

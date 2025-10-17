@@ -42,13 +42,13 @@ const OfferList = ({ restaurantId: propRestaurantId, isAdmin = false }) => {
   useEffect(() => {
     if (!propRestaurantId) {
       // Fetch all offers from all restaurants
-      axios.get('https://eatster-nine.vercel.app/api/offers').then(res => setOffers(res.data)).catch(() => setOffers([]));
+      axios.get('https://backend-weld-three-46.vercel.app/api/offers').then(res => setOffers(res.data)).catch(() => setOffers([]));
       setAllMode(true);
       setRestaurantId(null);
       setBanners([]);
       setRestaurantName('');
       const fetchBanners = () => {
-        axios.get('https://eatster-nine.vercel.app/api/restaurants/banners-all')
+        axios.get('https://backend-weld-three-46.vercel.app/api/restaurants/banners-all')
           .then(res => {
             setAllBanners(res.data);
             console.log('Fetched banners:', res.data); // Debug log
@@ -65,11 +65,11 @@ const OfferList = ({ restaurantId: propRestaurantId, isAdmin = false }) => {
       return;
     }
     setRestaurantId(storedId);
-      axios.get(`https://eatster-nine.vercel.app/api/restaurants/${storedId}/banners`).then(res => {
+      axios.get(`https://backend-weld-three-46.vercel.app/api/restaurants/${storedId}/banners`).then(res => {
         setBanners(res.data);
         if (res.data.length > 0) setRestaurantName(res.data[0].restaurant_name);
       });
-      axios.get(`https://eatster-nine.vercel.app/api/offers/${storedId}`).then(res => setOffers(res.data)).catch(() => setOffers([]));
+      axios.get(`https://backend-weld-three-46.vercel.app/api/offers/${storedId}`).then(res => setOffers(res.data)).catch(() => setOffers([]));
       setAllMode(false);
     }
   }, [propRestaurantId, refresh]);
@@ -85,7 +85,7 @@ const OfferList = ({ restaurantId: propRestaurantId, isAdmin = false }) => {
     }
     try {
       // Get existing cart items
-      const res = await axios.get(`https://eatster-nine.vercel.app/api/cart/${customerId}`);
+      const res = await axios.get(`https://backend-weld-three-46.vercel.app/api/cart/${customerId}`);
       const cartItems = res.data;
       // Check if cart is empty or same restaurant
       if (
@@ -93,7 +93,7 @@ const OfferList = ({ restaurantId: propRestaurantId, isAdmin = false }) => {
         cartItems.every((cartItem) => cartItem.restaurant_id === (allMode ? offer.restaurant_id : parseInt(restaurantId)))
       ) {
         // Add the offer as a cart item
-        await axios.post("https://eatster-nine.vercel.app/api/cart/add", {
+        await axios.post("https://backend-weld-three-46.vercel.app/api/cart/add", {
           customer_id: customerId,
           restaurant_id: allMode ? offer.restaurant_id : parseInt(restaurantId),
           item_id: offer.id,
@@ -115,8 +115,8 @@ const OfferList = ({ restaurantId: propRestaurantId, isAdmin = false }) => {
           cancelButtonText: "No, keep existing",
         }).then(async (result) => {
           if (result.isConfirmed) {
-            await axios.delete(`https://eatster-nine.vercel.app/api/cart/clear/${customerId}`);
-            await axios.post("https://eatster-nine.vercel.app/api/cart/add", {
+            await axios.delete(`https://backend-weld-three-46.vercel.app/api/cart/clear/${customerId}`);
+            await axios.post("https://backend-weld-three-46.vercel.app/api/cart/add", {
               customer_id: customerId,
               restaurant_id: parseInt(restaurantId),
               item_id: offer.id,
@@ -147,7 +147,7 @@ const OfferList = ({ restaurantId: propRestaurantId, isAdmin = false }) => {
       confirmButtonText: 'Yes, delete it!',
     });
     if (!result.isConfirmed) return;
-    await axios.delete(`https://eatster-nine.vercel.app/api/offers/${offerId}`, { data: { restaurant_id: restaurantId } });
+    await axios.delete(`https://backend-weld-three-46.vercel.app/api/offers/${offerId}`, { data: { restaurant_id: restaurantId } });
     setRefresh(prev => !prev);
   };
   const handleEditOffer = (offer) => {
@@ -184,7 +184,7 @@ const OfferList = ({ restaurantId: propRestaurantId, isAdmin = false }) => {
     data.append('valid_to', editOfferData.valid_to);
     data.append('active', true);
     if (editOfferData.image) data.append('image', editOfferData.image);
-    await axios.put(`https://eatster-nine.vercel.app/api/offers/${editOfferId}`, data);
+    await axios.put(`https://backend-weld-three-46.vercel.app/api/offers/${editOfferId}`, data);
     setEditOfferId(null);
     setEditOfferData({ foodname: '', price: '', title: '', description: '', discount_percent: '', valid_from: '', valid_to: '', image: null });
     setRefresh(prev => !prev);

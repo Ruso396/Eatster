@@ -16,7 +16,7 @@ const InvoicePage = () => {
 
   useEffect(() => {
     axios
-      .get(`https://eatster-nine.vercel.app/api/orders/history/${customerId}`)
+      .get(`https://backend-weld-three-46.vercel.app/api/orders/history/${customerId}`)
       .then((res) => {
         const grouped = {};
         res.data.forEach((item) => {
@@ -31,7 +31,7 @@ const InvoicePage = () => {
 
   const download = async (orderId) => {
     try {
-      const res = await axios.get(`https://eatster-nine.vercel.app/api/invoice/${orderId}`, {
+      const res = await axios.get(`https://backend-weld-three-46.vercel.app/api/invoice/${orderId}`, {
         responseType: "blob",
       });
       FileSaver.saveAs(res.data, `invoice_${orderId}.pdf`);

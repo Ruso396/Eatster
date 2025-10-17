@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Plus, Pencil, Trash2 } from 'lucide-react';
 import Swal from 'sweetalert2';
 
-const API_BASE_URL = 'https://eatster-nine.vercel.app/api/restaurants'; // Your backend API base URL
+const API_BASE_URL = 'https://backend-weld-three-46.vercel.app/api/restaurants'; // Your backend API base URL
 
 const MenuManagement = () => {
   const [menuItems, setMenuItems] = useState([]);

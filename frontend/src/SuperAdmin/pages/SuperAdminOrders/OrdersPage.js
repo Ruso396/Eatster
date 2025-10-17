@@ -15,7 +15,7 @@ const OrdersPage = () => {
 
   const fetchRestaurants = async () => {
     try {
-      const response = await fetch('https://eatster-nine.vercel.app/api/restaurants');
+      const response = await fetch('https://backend-weld-three-46.vercel.app/api/restaurants');
       const data = await response.json();
       setRestaurants(data);
     } catch (error) {
@@ -25,7 +25,7 @@ const OrdersPage = () => {
 
   const fetchOrdersByRestaurant = async (restaurantId, name) => {
     try {
-      const response = await fetch(`https://eatster-nine.vercel.app/api/orders/restaurant/${restaurantId}`);
+      const response = await fetch(`https://backend-weld-three-46.vercel.app/api/orders/restaurant/${restaurantId}`);
       const data = await response.json();
       setSelectedRestaurantOrders(data);
       setSelectedRestaurantName(name);

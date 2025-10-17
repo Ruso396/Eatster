@@ -22,7 +22,7 @@ const RestaurantDetail = () => {
   useEffect(() => {
     // Fetch restaurant name
     axios
-      .get(`https://eatster-nine.vercel.app/api/restaurants`)
+      .get(`https://backend-weld-three-46.vercel.app/api/restaurants`)
       .then((res) => {
         const found = res.data.find((r) => r.id === parseInt(restaurantId));
         setRestaurantName(found ? found.name : "Restaurant");
@@ -59,7 +59,7 @@ const handleAddToCart = async (item) => {
 
   try {
     // Step 1: Get existing cart items
-    const res = await axios.get(`https://eatster-nine.vercel.app/api/cart/${customerId}`);
+    const res = await axios.get(`https://backend-weld-three-46.vercel.app/api/cart/${customerId}`);
     const cartItems = res.data;
 
     // Step 2: Check if cart is empty or same restaurant
@@ -68,7 +68,7 @@ const handleAddToCart = async (item) => {
       cartItems.every((cartItem) => cartItem.restaurant_id === parseInt(restaurantId))
     ) {
       // Add the item
-      await axios.post("https://eatster-nine.vercel.app/api/cart/add", {
+      await axios.post("https://backend-weld-three-46.vercel.app/api/cart/add", {
         customer_id: customerId,
         restaurant_id: parseInt(restaurantId),
         item_id: item.id,
@@ -99,9 +99,9 @@ const handleAddToCart = async (item) => {
       }).then(async (result) => {
         if (result.isConfirmed) {
           // Clear cart and add new item
-          await axios.delete(`https://eatster-nine.vercel.app/api/cart/clear/${customerId}`);
+          await axios.delete(`https://backend-weld-three-46.vercel.app/api/cart/clear/${customerId}`);
 
-          await axios.post("https://eatster-nine.vercel.app/api/cart/add", {
+          await axios.post("https://backend-weld-three-46.vercel.app/api/cart/add", {
             customer_id: customerId,
             restaurant_id: parseInt(restaurantId),
             item_id: item.id,

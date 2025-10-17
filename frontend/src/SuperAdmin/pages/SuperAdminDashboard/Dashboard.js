@@ -20,17 +20,17 @@ const Dashboard = () => {
   }, []);
 
   const fetchUsers = async () => {
-    const res = await axios.get("https://eatster-nine.vercel.app/api/users");
+    const res = await axios.get("https://backend-weld-three-46.vercel.app/api/users");
     setUsers(res.data);
   };
 
   const fetchRestaurants = async () => {
-    const res = await axios.get("https://eatster-nine.vercel.app/api/restaurants");
+    const res = await axios.get("https://backend-weld-three-46.vercel.app/api/restaurants");
     setRestaurants(res.data);
   };
 
   const fetchOrders = async () => {
-    const res = await axios.get("https://eatster-nine.vercel.app/api/orders/all");
+    const res = await axios.get("https://backend-weld-three-46.vercel.app/api/orders/all");
     setOrders(res.data);
   };
 

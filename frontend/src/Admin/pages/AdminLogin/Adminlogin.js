@@ -33,7 +33,7 @@ const AdminLoginRegister = () => {
           return;
         }
 
-        const { data } = await axios.post('https://eatster-nine.vercel.app/api/login', {
+        const { data } = await axios.post('https://backend-weld-three-46.vercel.app/api/login', {
           email: formData.email,
           password: formData.password
         });
@@ -80,7 +80,7 @@ const AdminLoginRegister = () => {
           return;
         }
 
-        await axios.post('https://eatster-nine.vercel.app/api/register', {
+        await axios.post('https://backend-weld-three-46.vercel.app/api/register', {
           username: formData.username,
           email: formData.email,
           password: formData.password
