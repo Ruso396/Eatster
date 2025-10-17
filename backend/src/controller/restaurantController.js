@@ -189,7 +189,7 @@ exports.create = (req, res) => {
         }
 
         const adminEmail = "kalamruso2004@gmail.com";
-        const baseUrl = process.env.BASE_URL || "192.168.18.187:50";
+        const baseUrl = process.env.BASE_URL || "https://eatster-nine.vercel.app";
 
         Promise.all([
           restaurantModel.generateAndStoreToken(restaurantId, 'accept'),
