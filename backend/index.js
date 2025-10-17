@@ -50,6 +50,9 @@ app.use("/api/super-admin", superAdminRoutes);
 app.use("/api/invoice", invoiceRoutes);
 app.use("/api/search",searchRoutes)
 
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
+});
 // ✅ Start the HTTP server
 http.listen(5000, () => {
   console.log('✅ Server started on http://https://eatster-nine.vercel.app');
