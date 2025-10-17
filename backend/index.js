@@ -54,6 +54,8 @@ app.get("/", (req, res) => {
   res.send("Backend is running 🚀");
 });
 // ✅ Start the HTTP server
-http.listen(5000, () => {
-  console.log('✅ Server started on http://https://eatster-nine.vercel.app');
+const PORT = process.env.PORT || 5000;
+
+http.listen(PORT, () => {
+  console.log(`✅ Server started on port ${PORT}`);
 });
