@@ -27,7 +27,7 @@ const LoginRegister = () => {
           return;
         }
 
-        const { data } = await axios.post('http://https://eatster-nine.vercel.app/api/login', {
+        const { data } = await axios.post('https://eatster-nine.vercel.app/api/login', {
           email: formData.email,
           password: formData.password
         });
