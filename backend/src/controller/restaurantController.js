@@ -189,7 +189,7 @@ exports.create = (req, res) => {
         }
 
         const adminEmail = "kalamruso2004@gmail.com";
-        const baseUrl = process.env.BASE_URL || "http://192.168.18.187:50";
+        const baseUrl = process.env.BASE_URL || "192.168.18.187:50";
 
         Promise.all([
           restaurantModel.generateAndStoreToken(restaurantId, 'accept'),

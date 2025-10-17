@@ -155,7 +155,7 @@ const RestaurantRegister = () => {
 
       // Changed expectation to 202 Accepted as data is pending review
       const response = await axios.post(
-        "http://https://eatster-nine.vercel.app/api/restaurants",
+        "https://eatster-nine.vercel.app/api/restaurants",
  
         dataToSend
       );

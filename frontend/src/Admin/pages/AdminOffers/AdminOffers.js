@@ -38,7 +38,7 @@
 //       data.append("active", true);
 //       if (formData.image) data.append("image", formData.image);
 
-//       await axios.post("http://https://eatster-nine.vercel.app/api/offers", data);
+//       await axios.post("https://eatster-nine.vercel.app/api/offers", data);
 //       alert("✅ Offer added successfully!");
 
 //       setFormData({
@@ -120,7 +120,7 @@ const AdminOffers = () => {
     // Fetch banners for this restaurant
     useEffect(() => {
         if (!restaurantId) return;
-        axios.get(`http://https://eatster-nine.vercel.app/api/restaurants/${restaurantId}/banners`).then(res => setBanners(res.data));
+        axios.get(`https://eatster-nine.vercel.app/api/restaurants/${restaurantId}/banners`).then(res => setBanners(res.data));
     }, [restaurantId, bannerRefresh]);
 
     // Delete banner
@@ -134,7 +134,7 @@ const AdminOffers = () => {
             confirmButtonText: 'Yes, delete it!',
         });
         if (!result.isConfirmed) return;
-        await axios.delete(`http://https://eatster-nine.vercel.app/api/restaurants/banners/${bannerId}`);
+        await axios.delete(`https://eatster-nine.vercel.app/api/restaurants/banners/${bannerId}`);
         setBannerRefresh(prev => !prev);
         Swal.fire({ icon: 'success', title: 'Banner deleted successfully!', showConfirmButton: false, timer: 1200 });
     };
@@ -155,7 +155,7 @@ const AdminOffers = () => {
         }
         const data = new FormData();
         data.append("banner", editBannerImage);
-        await axios.put(`http://https://eatster-nine.vercel.app/api/restaurants/banners/${editBannerId}`, data);
+        await axios.put(`https://eatster-nine.vercel.app/api/restaurants/banners/${editBannerId}`, data);
         setEditBannerId(null);
         setEditBannerImage(null);
         setBannerRefresh(prev => !prev);
@@ -188,7 +188,7 @@ const AdminOffers = () => {
       data.append("active", true);
       if (formData.image) data.append("image", formData.image);
 
-      await axios.post("http://https://eatster-nine.vercel.app/api/offers", data);
+      await axios.post("https://eatster-nine.vercel.app/api/offers", data);
       setFormData({
         title: "",
                 foodname: "",
@@ -229,7 +229,7 @@ const AdminOffers = () => {
             const data = new FormData();
             data.append("restaurant_id", restaurantId);
             data.append("banner", bannerImage);
-            await axios.post("http://https://eatster-nine.vercel.app/api/restaurants/banners", data);
+            await axios.post("https://eatster-nine.vercel.app/api/restaurants/banners", data);
             setBannerImage(null);
             if (bannerInputRef.current) bannerInputRef.current.value = "";
             setBannerRefresh(prev => !prev);
@@ -426,7 +426,7 @@ const AdminOffers = () => {
                         {banners.map(banner => (
                             <div key={banner.id} className="border border-gray-200 rounded-xl shadow-md p-3 relative bg-white flex flex-col items-center">
                                 <img
-                                    src={`http://https://eatster-nine.vercel.app${banner.image_url}`}
+                                    src={`https://eatster-nine.vercel.app${banner.image_url}`}
                                     alt="Banner"
                                     className="w-full h-36 object-cover rounded-md mb-3"
                                 />

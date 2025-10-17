@@ -22,7 +22,7 @@ const RestaurantDetail = () => {
   useEffect(() => {
     // Fetch restaurant name
     axios
-      .get(`http://https://eatster-nine.vercel.app/api/restaurants`)
+      .get(`https://eatster-nine.vercel.app/api/restaurants`)
       .then((res) => {
         const found = res.data.find((r) => r.id === parseInt(restaurantId));
         setRestaurantName(found ? found.name : "Restaurant");
@@ -59,7 +59,7 @@ const handleAddToCart = async (item) => {
 
   try {
     // Step 1: Get existing cart items
-    const res = await axios.get(`http://https://eatster-nine.vercel.app/api/cart/${customerId}`);
+    const res = await axios.get(`https://eatster-nine.vercel.app/api/cart/${customerId}`);
     const cartItems = res.data;
 
     // Step 2: Check if cart is empty or same restaurant
@@ -68,7 +68,7 @@ const handleAddToCart = async (item) => {
       cartItems.every((cartItem) => cartItem.restaurant_id === parseInt(restaurantId))
     ) {
       // Add the item
-      await axios.post("http://https://eatster-nine.vercel.app/api/cart/add", {
+      await axios.post("https://eatster-nine.vercel.app/api/cart/add", {
         customer_id: customerId,
         restaurant_id: parseInt(restaurantId),
         item_id: item.id,
@@ -99,9 +99,9 @@ const handleAddToCart = async (item) => {
       }).then(async (result) => {
         if (result.isConfirmed) {
           // Clear cart and add new item
-          await axios.delete(`http://https://eatster-nine.vercel.app/api/cart/clear/${customerId}`);
+          await axios.delete(`https://eatster-nine.vercel.app/api/cart/clear/${customerId}`);
 
-          await axios.post("http://https://eatster-nine.vercel.app/api/cart/add", {
+          await axios.post("https://eatster-nine.vercel.app/api/cart/add", {
             customer_id: customerId,
             restaurant_id: parseInt(restaurantId),
             item_id: item.id,
@@ -156,7 +156,7 @@ const handleAddToCart = async (item) => {
                 </div>
                 <div className="flex flex-col items-center">
                   <img
-                    src={item.image_url ? `http://https://eatster-nine.vercel.app/${item.image_url}` : "/food-default.jpg"}
+                    src={item.image_url ? `https://eatster-nine.vercel.app/${item.image_url}` : "/food-default.jpg"}
                     alt={item.name}
                     className="w-20 h-20 rounded-lg object-cover mb-2 border"
                   />
@@ -188,7 +188,7 @@ const handleAddToCart = async (item) => {
             </div>
             <div className="flex flex-col items-center">
               <img
-                src={item.image_url ? `http://https://eatster-nine.vercel.app/${item.image_url}` : "/food-default.jpg"}
+                src={item.image_url ? `https://eatster-nine.vercel.app/${item.image_url}` : "/food-default.jpg"}
                 alt={item.name}
                 className="w-20 h-20 rounded-lg object-cover mb-2 border"
               />

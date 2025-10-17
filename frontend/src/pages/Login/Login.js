@@ -59,7 +59,7 @@ const LoginRegister = () => {
           return;
         }
 
-        await axios.post('http://https://eatster-nine.vercel.app/api/register', formData);
+        await axios.post('https://eatster-nine.vercel.app/api/register', formData);
 
         Swal.fire({ title: 'Registered Successfully!', text: 'You can now log in.', icon: 'success' });
 

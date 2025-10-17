@@ -11,8 +11,8 @@ const FoodDeliveredAlert = () => {
   let imgSrc = "/food-default.jpg";
   if (imageUrl) {
     imgSrc = imageUrl.startsWith('/uploads/')
-      ? `http://https://eatster-nine.vercel.app${imageUrl}`
-      : `http://https://eatster-nine.vercel.app/uploads/menu_items/${imageUrl}`;
+      ? `https://eatster-nine.vercel.app${imageUrl}`
+      : `https://eatster-nine.vercel.app/uploads/menu_items/${imageUrl}`;
   }
 
   return (

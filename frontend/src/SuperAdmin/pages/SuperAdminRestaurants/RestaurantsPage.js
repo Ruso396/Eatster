@@ -13,13 +13,13 @@ export default function RestaurantsPage() {
   }, []);
 
   const fetchUsers = () => {
-    axios.get('http://https://eatster-nine.vercel.app/api/users')
+    axios.get('https://eatster-nine.vercel.app/api/users')
       .then(res => setUsers(res.data))
       .catch(err => console.error(err));
   };
 
   const handleMakeAdmin = (id) => {
-    axios.put(`http://https://eatster-nine.vercel.app/api/restaurants/make-admin/${id}`)
+    axios.put(`https://eatster-nine.vercel.app/api/restaurants/make-admin/${id}`)
       .then(() => {
         alert("✅ User promoted to admin!");
         fetchUsers();

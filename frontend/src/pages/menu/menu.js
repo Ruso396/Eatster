@@ -27,7 +27,7 @@ const Menu = ({ userLocation }) => {
         }
         const dataWithImgPath = sortedData.map((item) => ({
           name: item.foodname,
-          img: `http://https://eatster-nine.vercel.app/images/${item.img}`,
+          img: `https://eatster-nine.vercel.app/images/${item.img}`,
         }));
         setCategories(dataWithImgPath);
       })
@@ -145,7 +145,7 @@ const Menu = ({ userLocation }) => {
                 className="bg-white rounded-lg shadow hover:shadow-lg transition-transform transform hover:scale-105 cursor-pointer overflow-hidden"
               >
                 <img
-                  src={`http://https://eatster-nine.vercel.app/${rest.image_url || "uploads/images/default_food.jpg"}`}
+                  src={`https://eatster-nine.vercel.app/${rest.image_url || "uploads/images/default_food.jpg"}`}
                   alt={rest.name}
                   className="w-full h-40 object-cover border-b"
                 />

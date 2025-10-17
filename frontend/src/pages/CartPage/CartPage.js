@@ -19,7 +19,7 @@ const CartPage = () => {
   const fetchCartItems = () => {
     if (customerId) {
       axios
-        .get(`http://https://eatster-nine.vercel.app/api/cart/${customerId}`)
+        .get(`https://eatster-nine.vercel.app/api/cart/${customerId}`)
         .then((res) => setCartItems(res.data))
         .catch((err) => console.error("Error fetching cart items:", err));
     }
@@ -29,7 +29,7 @@ const CartPage = () => {
     if (newQty <= 0) return;
 
     axios
-      .put(`http://https://eatster-nine.vercel.app/api/cart/update/${cartId}`, { quantity: newQty })
+      .put(`https://eatster-nine.vercel.app/api/cart/update/${cartId}`, { quantity: newQty })
       .then(() => {
         fetchCartItems();
         fetchCartCount();
@@ -48,7 +48,7 @@ const CartPage = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://https://eatster-nine.vercel.app/api/cart/item/${cartId}`)
+          .delete(`https://eatster-nine.vercel.app/api/cart/item/${cartId}`)
           .then(() => {
             Swal.fire("Removed!", "Item removed from cart.", "success");
             fetchCartItems();
@@ -103,8 +103,8 @@ const CartPage = () => {
                     src={
                       item.image_url
                         ? item.image_url.startsWith('/uploads/')
-                          ? `http://https://eatster-nine.vercel.app${item.image_url}`
-                          : `http://https://eatster-nine.vercel.app/uploads/menu_items/${item.image_url}`
+                          ? `https://eatster-nine.vercel.app${item.image_url}`
+                          : `https://eatster-nine.vercel.app/uploads/menu_items/${item.image_url}`
                         : "/food-default.jpg"
                     }
                     alt={item.item_name}

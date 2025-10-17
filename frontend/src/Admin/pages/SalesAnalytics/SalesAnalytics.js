@@ -23,7 +23,7 @@
 //     const fetchOrders = async () => {
 //       try {
 //         const token = localStorage.getItem('token');
-//         const res = await axios.get('http://https://eatster-nine.vercel.app/api/orders/restaurant', {
+//         const res = await axios.get('https://eatster-nine.vercel.app/api/orders/restaurant', {
 //           headers: { Authorization: `Bearer ${token}` },
 //         });
 
@@ -150,7 +150,7 @@ const SalesAnalytics = () => {
     const fetchOrders = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get('http://https://eatster-nine.vercel.app/api/orders/restaurant', {
+        const res = await axios.get('https://eatster-nine.vercel.app/api/orders/restaurant', {
           headers: { Authorization: `Bearer ${token}` },
         });
 
