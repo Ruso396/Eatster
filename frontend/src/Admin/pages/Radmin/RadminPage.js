@@ -150,7 +150,7 @@ const RadminPage = () => {
       }
 
       try {
-        const response = await axios.get(`http://localhost:5000/api/restaurants/details/${userEmail}`);
+        const response = await axios.get(`http://https://eatster-nine.vercel.app/api/restaurants/details/${userEmail}`);
         const data = response.data;
 
         setRestaurant({

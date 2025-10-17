@@ -13,7 +13,7 @@ export const CartProvider = ({ children }) => {
     const customerId = localStorage.getItem("customer_id");
     if (customerId) {
       try {
-        const res = await axios.get(`http://localhost:5000/api/cart/${customerId}`);
+        const res = await axios.get(`http://https://eatster-nine.vercel.app/api/cart/${customerId}`);
         const total = res.data.reduce((acc, item) => acc + item.quantity, 0);
         setCartItemCount(total);
       } catch (err) {

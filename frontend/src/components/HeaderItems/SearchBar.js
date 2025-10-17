@@ -26,7 +26,7 @@ const SearchBar = ({ userLocation }) => {
       return;
     }
     axios
-      .get("http://localhost:5000/api/search/suggestions", { params: { query } })
+      .get("http://https://eatster-nine.vercel.app/api/search/suggestions", { params: { query } })
       .then((res) => {
         setSuggestions(res.data);
       })
@@ -68,7 +68,7 @@ const SearchBar = ({ userLocation }) => {
       foodName: searchText,
     };
     axios
-      .get("http://localhost:5000/api/restaurants/nearby-by-menu-item", { params: query })
+      .get("http://https://eatster-nine.vercel.app/api/restaurants/nearby-by-menu-item", { params: query })
       .then((res) => {
         setRestaurants(res.data);
         setError("");
@@ -104,7 +104,7 @@ const SearchBar = ({ userLocation }) => {
             {suggestions.map((item, index) => (
               <li key={index} onClick={() => handleSuggestionClick(item.name)} className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 cursor-pointer">
                 <img
-                  src={`http://localhost:5000/${item.image || "uploads/images/default_food.jpg"}`}
+                  src={`http://https://eatster-nine.vercel.app/${item.image || "uploads/images/default_food.jpg"}`}
                   alt={item.name}
                   className="w-6 h-6 object-cover rounded"
                 />
@@ -123,7 +123,7 @@ const SearchBar = ({ userLocation }) => {
           <div className="restaurant-cards" style={{ display: "flex", flexWrap: "wrap", gap: "16px", marginTop: "12px" }}>
             {restaurants.map((rest, i) => (
               <div key={i} onClick={() => navigate(`/restaurant/${rest.id}?food=${searchText}`)} className="p-3 border rounded cursor-pointer hover:shadow" style={{ width: "250px" }}>
-                <img src={`http://localhost:5000/${rest.image_url || "uploads/images/default_food.jpg"}`} alt={rest.name} style={{ width: "100%", height: "140px", objectFit: "cover", borderRadius: "8px" }} />
+                <img src={`http://https://eatster-nine.vercel.app/${rest.image_url || "uploads/images/default_food.jpg"}`} alt={rest.name} style={{ width: "100%", height: "140px", objectFit: "cover", borderRadius: "8px" }} />
                 <h4>{rest.name}</h4>
                 <p><strong>City:</strong> {rest.city}</p>
                 <p><strong>Distance:</strong> {rest.distance?.toFixed(2)} km</p>

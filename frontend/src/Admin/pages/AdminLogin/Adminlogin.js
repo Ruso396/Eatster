@@ -33,7 +33,7 @@ const AdminLoginRegister = () => {
           return;
         }
 
-        const { data } = await axios.post('http://localhost:5000/api/login', {
+        const { data } = await axios.post('http://https://eatster-nine.vercel.app/api/login', {
           email: formData.email,
           password: formData.password
         });
@@ -80,7 +80,7 @@ const AdminLoginRegister = () => {
           return;
         }
 
-        await axios.post('http://localhost:5000/api/register', {
+        await axios.post('http://https://eatster-nine.vercel.app/api/register', {
           username: formData.username,
           email: formData.email,
           password: formData.password

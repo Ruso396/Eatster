@@ -36,7 +36,7 @@ const CustomersPage = ({ themeColor, isDarkMode }) => {
     setLoading(true);
     try {
       // API Call for Users (Customers and potentially others)
-      const customerRes = await axios.get('http://localhost:5000/api/users');
+      const customerRes = await axios.get('http://https://eatster-nine.vercel.app/api/users');
       // Filter for users who have a customer_id, mapping username to name for consistency
       const apiCustomers = customerRes.data
         .filter(user => user.customer_id)
@@ -54,7 +54,7 @@ const CustomersPage = ({ themeColor, isDarkMode }) => {
         }));
 
       // Real API Call for Restaurant Owners
-      const restaurantRes = await axios.get('http://localhost:5000/api/restaurants');
+      const restaurantRes = await axios.get('http://https://eatster-nine.vercel.app/api/restaurants');
       const apiRestaurantOwners = restaurantRes.data;
 
       setUsers(apiCustomers);

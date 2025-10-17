@@ -27,7 +27,7 @@ const LiveOrders = () => {
         return;
       }
 
-      const res = await axios.get('http://localhost:5000/api/orders/restaurant', {
+      const res = await axios.get('http://https://eatster-nine.vercel.app/api/orders/restaurant', {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -62,7 +62,7 @@ const LiveOrders = () => {
     try {
       const token = localStorage.getItem('token');
       await axios.put(
-        `http://localhost:5000/api/orders/${orderId}/status`,
+        `http://https://eatster-nine.vercel.app/api/orders/${orderId}/status`,
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );

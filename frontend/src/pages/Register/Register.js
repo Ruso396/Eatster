@@ -9,7 +9,7 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/register", form);
+      await axios.post("http://https://eatster-nine.vercel.app/api/register", form);
       alert("Registered successfully!");
     } catch (err) {
       alert(err.response?.data?.message || "Registration failed");

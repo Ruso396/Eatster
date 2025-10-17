@@ -39,7 +39,7 @@ const TrackingPage = () => {
   useEffect(() => {
     const fetchOrder = () => {
       axios
-        .get(`http://localhost:5000/api/orders/track/${orderId}`)
+        .get(`http://https://eatster-nine.vercel.app/api/orders/track/${orderId}`)
         .then((res) => setOrder(res.data))
         .catch((err) => console.error("Error fetching order:", err));
     };
@@ -52,14 +52,14 @@ const TrackingPage = () => {
   const handleCancel = () => {
     if (!cancelReason) return alert("Please select a reason");
     axios
-      .put(`http://localhost:5000/api/orders/cancel/${orderId}`, {
+      .put(`http://https://eatster-nine.vercel.app/api/orders/cancel/${orderId}`, {
         reason: cancelReason,
       })
       .then(() => {
         alert("Order cancelled successfully");
         setShowCancelForm(false);
         setCancelReason("");
-        axios.get(`http://localhost:5000/api/orders/track/${orderId}`)
+        axios.get(`http://https://eatster-nine.vercel.app/api/orders/track/${orderId}`)
              .then((res) => setOrder(res.data));
       })
       .catch((err) => {
@@ -99,8 +99,8 @@ const TrackingPage = () => {
                       src={
                         item.image_url
                           ? item.image_url.startsWith('/uploads/')
-                            ? `http://localhost:5000${item.image_url}`
-                            : `http://localhost:5000/uploads/menu_items/${item.image_url}`
+                            ? `http://https://eatster-nine.vercel.app${item.image_url}`
+                            : `http://https://eatster-nine.vercel.app/uploads/menu_items/${item.image_url}`
                           : "/food-default.jpg"
                       }
                       alt={item.item_name}

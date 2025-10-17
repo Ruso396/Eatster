@@ -10,7 +10,7 @@
 // //   const [loading, setLoading] = useState(true);
 // //   const [error, setError] = useState(null);
 
-// //   const BASE_URL = 'http://localhost:5000';
+// //   const BASE_URL = 'http://https://eatster-nine.vercel.app';
 
 // //   useEffect(() => {
 // //     const fetchRestaurantDetails = async () => {
@@ -129,7 +129,7 @@
 //   const [loading, setLoading] = useState(true);
 //   const [error, setError] = useState(null);
 
-//   const BASE_URL = 'http://localhost:5000';
+//   const BASE_URL = 'http://https://eatster-nine.vercel.app';
 
 //   useEffect(() => {
 //     const fetchRestaurantDetails = async () => {
@@ -261,7 +261,7 @@ const DashboardOverview = () => {
   const [error, setError] = useState(null);
   const [todayStats, setTodayStats] = useState(null);
 
-  const BASE_URL = 'http://localhost:5000';
+  const BASE_URL = 'http://https://eatster-nine.vercel.app';
 
   useEffect(() => {
     const fetchRestaurantDetails = async () => {

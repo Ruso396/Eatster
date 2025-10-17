@@ -30,7 +30,7 @@ const Settings = () => {
           return;
         }
 
-        const response = await axios.get(`http://localhost:5000/api/restaurants/details/${userEmail}`);
+        const response = await axios.get(`http://https://eatster-nine.vercel.app/api/restaurants/details/${userEmail}`);
         setRestaurantData(response.data);
         setLoading(false);
       } catch (err) {
@@ -60,7 +60,7 @@ const Settings = () => {
         return;
       }
 
-      await axios.put(`http://localhost:5000/api/restaurants/details/${userEmail}`, {
+      await axios.put(`http://https://eatster-nine.vercel.app/api/restaurants/details/${userEmail}`, {
         name: restaurantData.name,
         mobile: restaurantData.contact, // Ensure this maps to 'mobile' in backend
         address: restaurantData.address,
@@ -82,7 +82,7 @@ const Settings = () => {
         return;
       }
 
-      await axios.put(`http://localhost:5000/api/restaurants/bank-details/${userEmail}`, {
+      await axios.put(`http://https://eatster-nine.vercel.app/api/restaurants/bank-details/${userEmail}`, {
         account_name: restaurantData.account_name,
         account_number: restaurantData.account_number,
         ifsc: restaurantData.ifsc,

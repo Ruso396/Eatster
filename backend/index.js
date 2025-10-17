@@ -52,5 +52,5 @@ app.use("/api/search",searchRoutes)
 
 // ✅ Start the HTTP server
 http.listen(5000, () => {
-  console.log('✅ Server started on http://localhost:5000');
+  console.log('✅ Server started on http://https://eatster-nine.vercel.app');
 });

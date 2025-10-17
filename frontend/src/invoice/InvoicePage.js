@@ -16,7 +16,7 @@ const InvoicePage = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/orders/history/${customerId}`)
+      .get(`http://https://eatster-nine.vercel.app/api/orders/history/${customerId}`)
       .then((res) => {
         const grouped = {};
         res.data.forEach((item) => {
@@ -31,7 +31,7 @@ const InvoicePage = () => {
 
   const download = async (orderId) => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/invoice/${orderId}`, {
+      const res = await axios.get(`http://https://eatster-nine.vercel.app/api/invoice/${orderId}`, {
         responseType: "blob",
       });
       FileSaver.saveAs(res.data, `invoice_${orderId}.pdf`);
@@ -88,8 +88,8 @@ const InvoicePage = () => {
                           src={
                             item.image_url
                               ? item.image_url.startsWith('/uploads/')
-                                ? `http://localhost:5000${item.image_url}`
-                                : `http://localhost:5000/uploads/menu_items/${item.image_url}`
+                                ? `http://https://eatster-nine.vercel.app${item.image_url}`
+                                : `http://https://eatster-nine.vercel.app/uploads/menu_items/${item.image_url}`
                               : "/food-default.jpg"
                           }
                           alt={item.item_name}

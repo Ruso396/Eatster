@@ -3,7 +3,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { FaEdit, FaTrash } from "react-icons/fa";
 
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = "http://https://eatster-nine.vercel.app";
 
 export default function MenuItemsPage() {
   const [menuItems, setMenuItems] = useState([]);
